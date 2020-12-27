@@ -40,7 +40,6 @@ public class ConverterUtils {
 		} catch (NumberFormatException e) {
 			throw new APIException(String.format("Could not convert string value to Double. The value: %s", value), e);
 		}
-
 	}
 
 	/**
@@ -55,7 +54,6 @@ public class ConverterUtils {
 		} catch (NumberFormatException e) {
 			throw new APIException(String.format("Could not convert string value to BigDecimal. The value: %s", value), e);
 		}
-
 	}
 
 }
