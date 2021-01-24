@@ -28,12 +28,12 @@ public class PackageInfoTest {
 
 	@Test
 	public void testGetWeightLimit() {
-		Assert.assertTrue(packageInfo.getWeightLimit() == 8);
+		Assert.assertEquals(packageInfo.getWeightLimit(),8);
 	}
 
 	@Test
 	public void testGetItems() {
-		Assert.assertTrue(packageInfo.getItems().size() == 1);
+		Assert.assertEquals(packageInfo.getItems().size(), 1);
 	}
 
 	@Test

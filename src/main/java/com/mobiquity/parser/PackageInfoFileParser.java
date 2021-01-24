@@ -1,8 +1,8 @@
 package com.mobiquity.parser;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -22,9 +22,8 @@ import com.mobiquity.model.PackageInfo;
 import com.mobiquity.utils.ConverterUtils;
 
 /**
- * Implements all the functions of IFileParser interface.
- * Reads the file in given path. 
- * Parse the content and fit each line to the PackageInfo object
+ * Implements all the functions of IFileParser interface. Reads the file in
+ * given path. Parse the content and fit each line to the PackageInfo object
  * 
  * @author N.Yesilkaya
  *
@@ -43,7 +42,7 @@ public class PackageInfoFileParser implements IFileParser<PackageInfo> {
 		for (String line : lines) {
 			int lineNumber = lines.indexOf(line) + 1;
 			LOGGER.debug(line);
-			line = line.replace(" ", "").replace("€", "").replace("(", "");
+			line = line.replace(" ", "").replace("\u20ac", "").replace("(", "");
 			String[] lineParts = line.split(":");
 			checkLinePart(line, lineParts.length);
 
@@ -63,19 +62,12 @@ public class PackageInfoFileParser implements IFileParser<PackageInfo> {
 
 	private List<String> getFileLines(String filePath) throws APIException {
 		Path path = Paths.get(filePath);
-		List<String> lines = new ArrayList<>();
-		Stream<String> fileStream = null;
-		try {
-			fileStream = Files.lines(path, StandardCharsets.UTF_8);
-			lines = fileStream.collect(Collectors.toList());
+		try(BufferedReader reader = Files.newBufferedReader(path)){
+			Stream<String> streamLines = reader.lines();
+			return streamLines.collect(Collectors.toList());
 		} catch (IOException e) {
 			throw new APIException(String.format("Could not read file. Error message : %s", e.getMessage()), e);
-		} finally {
-			if (fileStream != null) {
-				fileStream.close();
-			}
-		}
-		return lines;
+		} 
 	}
 
 	private List<Item> getPackageItems(int lineNumber, String lineItemsPart) throws APIException {

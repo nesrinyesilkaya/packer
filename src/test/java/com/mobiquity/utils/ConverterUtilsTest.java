@@ -23,7 +23,7 @@ public class ConverterUtilsTest {
 
 	@Test
 	public void testConvert2Double() throws APIException {
-		assertEquals(ConverterUtils.convert2Double("2.0"), 2.0);
+		assertEquals(ConverterUtils.convert2Double("2.0"), new Double(2.0));
 	}
 
 	@Test(expectedExceptions = { APIException.class }, expectedExceptionsMessageRegExp = "Could not convert string value to Double.*")

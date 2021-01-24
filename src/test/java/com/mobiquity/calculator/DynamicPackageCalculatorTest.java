@@ -35,7 +35,7 @@ public class DynamicPackageCalculatorTest {
 		dynamicPackageCalculator.calculate(packageInfo);
 		assertEquals(packageInfo.getSelectedItems().size(), 1);
 		assertEquals(packageInfo.getSelectedItems().get(0).getIndex(), 1);
-		assertEquals(packageInfo.getSelectedItems().get(0).getWeight(), 15.0);
+		assertEquals(packageInfo.getSelectedItems().get(0).getWeight(), new Double(15.0));
 		assertEquals(packageInfo.getSelectedItems().get(0).getCost(), new BigDecimal(34));
 	}
 
