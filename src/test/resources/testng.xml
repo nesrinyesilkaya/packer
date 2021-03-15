@@ -1,7 +1,7 @@
 <suite name="PackerTestSuite" verbose="1">
     <test name="PackageTests">
         <packages>
-            <package name="com.mobiquity.*" />
+            <package name="com.ny.*" />
         </packages>
     </test>
 </suite>

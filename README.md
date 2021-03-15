@@ -1,4 +1,4 @@
-# Mobiquity - Packaging Challenge
+# Packaging Challenge
 ### Problem Definition
 You want to send your friend a package with different things. Each thing you put inside the package has such parameters as index number, weight and cost. The package has a weight limit. Your goal is to determine which things to put into the package so that the total weight is less than or equal to the package limit and the total cost is as large as possible. You would prefer to send a package which weighs less in case there is more than one package with the same price.
 ##### Input Sample
@@ -49,11 +49,11 @@ or
 
     ./gradlew clelan test
 
-- Executable jar file is located under build/libs folder with the name **mobiquity-packer-1.0.0.jar**
+- Executable jar file is located under build/libs folder with the name **packer-1.0.0.jar**
 
 **Execution**
 ```shell
-java -jar mobiquity-packer-1.0.0.jar absolute-file-path
+java -jar packer-1.0.0.jar absolute-file-path
 ```
 ![Application Execution Result](https://user-images.githubusercontent.com/76202242/103179240-e0495d80-489a-11eb-9dda-262010ff64a3.PNG "Application Execution Result")
 
